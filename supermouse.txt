@@ -1,0 +1,199 @@
+----------------------------------
+| Supermouse 2.30                |
+----------------------------------
+| Author   : Skrol 29            |
+| Web site : www.skrol29.com     |
+| Email    : skrol29@freesurf.fr |
+----------------------------------
+
+1/ What is Supermouse for?
+2/ Instalation
+3/ Help
+   3.a Building a script
+   3.b Actions
+   3.c Open and save a script
+   3.d Run and stop a script
+   3.e Options
+   3.f Command line parameters
+4/ License
+
+
+1/ What is Supermouse for?
+--------------------------
+Supermouse enables you to build scripts which perform repetitive mouse
+tasks. But it also go a step farther, and brings the possibility to check
+the screen in order to decide which task to proceed. Here is the liste of
+the possible actions for a Supemouse script:
+- Mouse actions (move in line, ine circle, several clicks)
+- Wait (duration or pixel color)
+- Loop (duration or number)
+- Condition (depending on a pixel color)
+- Label and Goto
+- Execute an external application
+- Send keys
+- Display a message
+
+
+2/ Installation
+---------------
+Supermouse.exe is a stand alone program but it requires that your system has 
+the VB6 Runtime.
+
+VB6 Runtime :
+Supermouse is developped with Visual Basic 6. Which means that it requires
+the VB6 Runtime. The VB6 Runtime is provided by default with
+Windows 98 or higger. If you don't have it, then an error message will be
+prompt as soon as you open Supermouse.exe. Then you will have to download
+the VB6 Runtime at the Microsoft web site.
+(I don't give the download URL because it might change)
+
+3/ Help
+-------
+
+3.a Building a script
+---------------------
+A script is composed by several actions which are executed in order.
+The script stops when it met the last action.
+The main window shows you the list of actions of the script in the order
+they will be executed. You can add an action by choosing the type of action
+in the list and click on the button [insert]. The action list allways
+contains a special End label at the bottom of the list.
+This End label cannot be edited or deleted, and you cannot insert an action
+after.
+You can edit, delete or change the order of other actions in the list.
+
+For most of the action, you can enter a caption for the action list in the
+main window. You can also enabled or disabled each action.
+
+3.b Actions
+-----------
+
+----------------------------------------------------------------------------
+
+-> Mouse
+
+Choos a move in line (stanard move), in circle, or no move.
+A move in line can be combined with any button action (clicks) 
+before or after the move.
+
+If it's move in circle, then buttons actions can only be a drag'n drop, and
+The coordinates are the center of the circle and you can specify a radius.
+
+The coordinate of the point to reach can be relative to the screen, the
+active window or the median.
+You can click on [Locate] to set the coordinates automatically.
+
+You can specify a speed for the move:
+0 means immediatly.
+1 means 100 pixel/sec
+10 is a slow for drag'n drop
+20 is a normal for drag'n drop
+30 is quick but ok for drag'n drop
+
+-> Wait
+
+You can wait for a duration or wait until a specified pixel of the screen
+takes a specific color. You can combine both.
+See the Mouse action for more detail about how to set the coordinates.
+
+-> Loop
+
+A Loop action displays two items in the action list: the beginning of the
+loop and the end of the loop. You can move the position of the end and the
+beginning of a loop in the action list.
+
+A loop enables the script to repeat the actions which are between the
+beginning and the end of the loop until a duration or until a number of
+times.
+
+-> Condition
+
+This action enables to to jump to another action or to continue the
+script depending to the color of a specified pixel.
+See the Mouse action for more detail about how to set the coordinates.
+See the Goto action for more detail about how to set the jumps.
+
+-> Label and Goto
+
+A label is a locator to which you can jump from Goto action or a 
+Condition action.
+The name of the label must be unique in the script. Take care of that.
+'End' and 'Return' are reserved words and must not be use as a label name.
+
+A Goto action just enables you to jump to a label.
+'End' and 'Return' are reserved word for a jump action.
+Goto 'End' stops the script.
+Goto 'Return' jumps to the action just after the last performed
+Goto action. Be careful when using a Goto 'Return' because it doesn't
+suppport embeded Goto in this version of SuperMouse.
+
+-> Execute
+
+Execute a DOS command line.
+This is useful to start a new application.
+For example : iexplore.exe "http://www.skrol29.com/"
+
+-> Keys
+
+simulate a send keys.
+You can use special keywords for special keys :
+~ or {ENTER} = [Enter]
+{ESC} = [Escape]
++ = [Shift]
+^ = [Ctrl]
+% = [Alt]
+{DEL} = [Delete]
+{TAB} = [Tab]
+{LEFT} = [Left]
+{RIGHT} = [Right]
+{UP} = [Up]
+{DOWN} = [Down]
+...
+(see the help of the SendKeys Visual Basic function for more keywords)
+
+
+-> Message
+
+Display message in a standard dialog box.
+The script waits until someone clicks on the [Ok] button.
+
+-> Comment
+
+This action has no effect.
+It just enables you to have a comment in your script.
+
+3.c Open and save a script
+--------------------------
+You can save a script into a SMS (Supermouse Script) file from the 
+main window menu 'File'.
+You can also open a SMS file in order to run it or to modify it.
+
+3.d Run and stop a script
+-------------------------
+
+You can start a script manually from the main window menu by choosing
+'Tool'/'Run'.
+You can also start a script automatically by using a command line.
+See the 'Command line parameters' chapter for more details.
+
+3.e Options
+-----------
+
+You can change the option of the script by choosing 'Tools/options' in the
+main window menu.
+The options are available only for the current script and are saved with
+the script.
+
+
+3.f Command line parameters
+---------------------------
+
+- /?     : display a small help about command line parameters.
+- [file] : Load and run the specified SMS (Supermouse Script) file.
+
+
+4/ License
+----------
+Supermouse is freeware.
+
+----------------------------------------------------------------------------
